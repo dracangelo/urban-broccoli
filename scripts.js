@@ -17,9 +17,17 @@ function shakeMagic8Ball() {
 
     // Check if the question is not empty
     if (questionInput.value.trim() !== "") {
-        // Shake the Magic 8 Ball and display the response
-        const response = responses[Math.floor(Math.random() * responses.length)];
-        responseDisplay.textContent = `Magic 8 Ball says: ${response}`;
+        // Add shake animation class
+        responseDisplay.classList.add("shake-animation");
+
+        // Shake the Magic 8 Ball and display the response after the animation
+        setTimeout(() => {
+            const response = responses[Math.floor(Math.random() * responses.length)];
+            responseDisplay.textContent = `Magic 8 Ball says: ${response}`;
+            
+            // Remove shake animation class
+            responseDisplay.classList.remove("shake-animation");
+        }, 500);
     } else {
         alert("Please enter a question before shaking the Magic 8 Ball.");
     }
